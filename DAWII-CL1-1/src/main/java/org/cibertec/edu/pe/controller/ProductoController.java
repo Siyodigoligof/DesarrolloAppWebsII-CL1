@@ -44,13 +44,13 @@ public class ProductoController {
 		@GetMapping("/create")
 		public String create(Model m) {
 			m.addAttribute("product", new Producto());
-			return "createNewProduct";
+			return "Agregar";
 		}
 		
 		@PostMapping("/save")
 		public String save(@Validated Producto p, Model m) {
 			servicio.save(p);
-			return "redirect:/list";
+			return "redirect:/comprar";
 		}
 		
 		@GetMapping("/update/{id}")
@@ -63,7 +63,7 @@ public class ProductoController {
 		@GetMapping("/delete")
 		public String delete(@PathVariable String id, Model m) {
 			servicio.delete(id);
-			return "redirect:/list";
+			return "redirect:/comprar";
 		}
 
 }
