@@ -65,5 +65,14 @@ public class ProductoController {
 			servicio.delete(id);
 			return "redirect:/comprar";
 		}
+		
+		@GetMapping("/purchase")	// http://localhost:8080/comprar
+		public String Lista(Model m) {
+			List<Producto> lista = servicio.list();
+			m.addAttribute("producto", lista);
+			
+			return "carrito";	// carrito.html
+		}
+
 
 }
